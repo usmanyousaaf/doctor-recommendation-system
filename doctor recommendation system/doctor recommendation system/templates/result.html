@@ -1,0 +1,203 @@
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html lang="en">&ndash;&gt;-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta name="viewport" content="width=device-width, initial-scale=1.0">&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>Result</title>&ndash;&gt;-->
+<!--&lt;!&ndash;    <link rel="stylesheet" href="static/style.css">&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body style="background: linear-gradient(135deg, #71b7e6, #9b59b6);">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="container">&ndash;&gt;-->
+<!--&lt;!&ndash;        <h1>Doctor Recommendation Result</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;        <p>The predicted disease based on the symptoms is: {{ predicted_disease }}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a href="/">Go back to the home page</a>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash; Your existing HTML code for the result page (result.html) remains unchanged &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash; Display matched doctors along with their details &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;{% if matched_doctors %}&ndash;&gt;-->
+<!--&lt;!&ndash;    <h2>Matched Doctors:</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;    <ul>&ndash;&gt;-->
+<!--&lt;!&ndash;        {% for doctor in matched_doctors %}&ndash;&gt;-->
+<!--&lt;!&ndash;            <li>&ndash;&gt;-->
+<!--&lt;!&ndash;                <p>Name: {{ doctor.full_name }}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                <p>Email: {{ doctor.email }}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                &lt;!&ndash; Add more details as needed &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;            </li>&ndash;&gt;-->
+<!--&lt;!&ndash;        {% endfor %}&ndash;&gt;-->
+<!--&lt;!&ndash;    </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;{% else %}&ndash;&gt;-->
+<!--&lt;!&ndash;    <p>No matching doctors found.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;{% endif %}&ndash;&gt;-->
+
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Result</title>-->
+<!--    <link rel="stylesheet" href="static/style.css">-->
+<!--</head>-->
+<!--<body style="background: linear-gradient(135deg, #71b7e6, #9b59b6);">-->
+<!--    <div class="container">-->
+<!--        <h1>Doctor Recommendation Result</h1>-->
+<!--        <p>The predicted disease based on the symptoms is: {{ predicted_disease }}</p>-->
+<!--        <a href="/">Go back to the home page</a>-->
+<!--    </div>-->
+<!--&lt;!&ndash; Your existing HTML code for the result page (result.html) remains unchanged &ndash;&gt;-->
+<!--&lt;!&ndash; Display matched doctors along with their details &ndash;&gt;-->
+<!--&lt;!&ndash; Inside the result.html file &ndash;&gt;-->
+<!--&lt;!&ndash; Inside the result.html file &ndash;&gt;-->
+<!--{% if matched_doctors %}-->
+<!--    <h2>Matched Doctors:</h2>-->
+<!--    <div class="doctor-cards">-->
+<!--        {% for doctor in matched_doctors %}-->
+<!--            <div class="doctor-card">-->
+<!--                <img src="data:image/png;base64,{{ doctor.image_data }}" alt="Doctor Image">-->
+<!--                <div class="doctor-details">-->
+<!--                    <p><strong>Name:</strong> {{ doctor.full_name }}</p>-->
+<!--                    <p><strong>Email:</strong> {{ doctor.email }}</p>-->
+<!--                    <p><strong>Degree:</strong> {{ doctor.degree }}</p>-->
+<!--                    <p><strong>Specialization:</strong> {{ doctor.specialization }}</p>-->
+<!--                    <p><strong>Contact:</strong> {{ doctor.contact }}</p>-->
+<!--                    <p><strong>Address:</strong> {{ doctor.address }}</p>-->
+<!--                    <p><strong>Country:</strong> {{ doctor.country }}</p>-->
+<!--                    <p><strong>Gender:</strong> {{ doctor.gender }}</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        {% endfor %}-->
+<!--    </div>-->
+<!--{% else %}-->
+<!--    <p>No matching doctors found.</p>-->
+<!--{% endif %}-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+<!--trye3-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="static/style.css">
+    <!-- Add your custom styles here -->
+    <style>
+        body {
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            color: #333;
+        }
+
+        h1 {
+            color: #3498db;
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .doctor-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .doctor-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px; /* Adjust the width as needed */
+        }
+
+        .doctor-card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .doctor-details {
+            padding: 10px;
+        }
+
+        .doctor-details p {
+            margin: 5px 0;
+            font-size: 1em;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Recommended Doctors</h1>
+        <p>The predicted disease based on the symptoms is: {{ predicted_disease }}</p>
+        <a href="/">Go back to the home page</a>
+
+        {% if matched_doctors %}
+            <h2>Matched Doctors:</h2>
+            <div class="doctor-cards">
+                {% for doctor in matched_doctors %}
+                    <div class="doctor-card">
+                        <img src="data:image/png;base64,{{ doctor.image_data }}" alt="Doctor Image">
+                        <div class="doctor-details">
+                            <p><strong>Name:</strong> {{ doctor.full_name }}</p>
+                            <p><strong>Email:</strong> {{ doctor.email }}</p>
+                            <p><strong>Degree:</strong> {{ doctor.degree }}</p>
+                            <p><strong>Specialization:</strong> {{ doctor.specialization }}</p>
+                            <p><strong>Contact:</strong> {{ doctor.contact }}</p>
+                            <p><strong>Address:</strong> {{ doctor.address }}</p>
+                            <p><strong>Country:</strong> {{ doctor.country }}</p>
+                            <p><strong>Gender:</strong> {{ doctor.gender }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No matching doctors found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Doctor Recommendation System</title>-->
+<!--    <link rel="stylesheet" href="static/style.css">-->
+<!--</head>-->
+<!--<body style="background: linear-gradient(135deg, #71b7e6, #9b59b6);">-->
+<!--    <div class="container">-->
+<!--        <h1>Doctor Recommendation System</h1>-->
+<!--        <form action="/recommend" method="post">-->
+<!--            <label for="symptoms">Enter your symptoms:</label>-->
+<!--            <textarea name="symptoms" id="symptoms" rows="4" required></textarea>-->
+<!--            <button type="submit">Get Recommendation</button>-->
+<!--        </form>-->
+<!--        &lt;!&ndash; Your existing HTML code for the homepage (index.html) remains unchanged &ndash;&gt;-->
+<!--&lt;!&ndash; Add a button/link to navigate to the registration form &ndash;&gt;-->
+<!--<a href="/register">Register as a Doctor</a>-->
+
+<!--    </div>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Recommendation System</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body style="background: linear-gradient(135deg, #71b7e6, #9b59b6);">
+    <div class="container">
+        <h1>Doctor Recommendation System</h1>
+        <form action="/recommend" method="post">
+            <label for="symptoms">Enter your symptoms:</label>
+            <textarea name="symptoms" id="symptoms" rows="4" required></textarea>
+            <button type="submit">Get Recommendation</button>
+        </form>
+
+        <!-- Single link to the registration form for new doctors -->
+        <div class="registration-link">
+            <a href="{{ url_for('register') }}">Register as a Doctor</a>
+        </div>
+
+        <!-- Separate button to navigate to the admin panel -->
+        <a href="/admin" class="admin-button">Admin Panel</a>
+    </div>
+</body>
+</html>

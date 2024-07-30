@@ -1,0 +1,200 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" dir="ltr">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Registration Form</title>-->
+<!--    <link rel="stylesheet" href="static/dr_ui.css">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="container">-->
+<!--        <div class="title">Registration Form</div>-->
+<!--        <div class="content">-->
+<!--            <form action="/register" method="post" enctype="multipart/form-data">-->
+<!--                <div class="user-details">-->
+<!--                    <div class="input-box">-->
+<!--                        <span class="details">Full Name</span>-->
+<!--                        <input type="text" name="full_name" placeholder="Enter your name" required>-->
+<!--                    </div>-->
+<!--                    <div class="input-box">-->
+<!--                        <span class="details">Degree</span>-->
+<!--                        <input type="text" name="degree" placeholder="MBBS, BDS, psychologist, or other" required>-->
+<!--                    </div>-->
+<!--                    <div class="input-box">-->
+<!--                        <span class="details">Specialization</span>-->
+<!--                        <input type="text" name="specialization" placeholder="Cardiothoracic Surgery or others" required>-->
+<!--                    </div>-->
+<!--                    <div class="input-box">-->
+<!--                        <span class="details">Disease Specialist</span>-->
+<!--                        <input type="text" name="disease_specialist" placeholder="Diabetes, Asthma, Cancer, or others" required>-->
+<!--                    </div>-->
+<!--                    <div class="input-box">-->
+<!--                        <span class="details">Email</span>-->
+<!--                        <input type="text" name="email" placeholder="Enter your email" required>-->
+<!--                    </div>-->
+<!--                    <div class="input-box">-->
+<!--                        <span class="details">Contact</span>-->
+<!--                        <input type="text" name="contact" placeholder="Enter your phone number" required>-->
+<!--                    </div>-->
+<!--                    <div class="input-box">-->
+<!--                        <span class="details">Address</span>-->
+<!--                        <input type="text" name="address" placeholder="Enter your address" required>-->
+<!--                    </div>-->
+<!--                    <div class="input-box">-->
+<!--                        <span class="details">Country</span>-->
+<!--                        <input type="text" name="country" placeholder="Enter your country" required>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="gender-details">-->
+<!--                    <input type="radio" name="gender" id="dot-1">-->
+<!--                    <input type="radio" name="gender" id="dot-2">-->
+<!--                    <span class="gender-title">Gender</span>-->
+<!--                    <div class="category">-->
+<!--                        <label for="dot-1">-->
+<!--                            <span class="dot one"></span>-->
+<!--                            <span class="gender">Male</span>-->
+<!--                        </label>-->
+<!--                        <label for="dot-2">-->
+<!--                            <span class="dot two"></span>-->
+<!--                            <span class="gender">Female</span>-->
+<!--                        </label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div id="uploader-container">-->
+<!--                    <label for="file-input">Choose Image</label>-->
+<!--                   <input type="file" id="file-input" name="file-input" accept="image/*" onchange="displayImage()">-->
+
+<!--                    <img id="uploaded-image" alt="Uploaded Image">-->
+<!--                </div>-->
+<!--                <div class="button">-->
+<!--                    <input type="submit" value="Register">-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <script>-->
+<!--        function displayImage() {-->
+<!--            const fileInput = document.getElementById('file-input');-->
+<!--            const uploadedImage = document.getElementById('uploaded-image');-->
+
+<!--            const file = fileInput.files[0];-->
+
+<!--            if (file) {-->
+<!--                const reader = new FileReader();-->
+<!--                reader.onload = function (e) {-->
+<!--                    uploadedImage.src = e.target.result;-->
+<!--                    uploadedImage.classList.add('active');-->
+<!--                };-->
+<!--                reader.readAsDataURL(file);-->
+<!--            }-->
+<!--        }-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="static/dr_ui.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <div class="title">Registration Form</div>
+        <div class="content">
+            {% if message %}
+                <p>{{ message }}</p>
+            {% endif %}
+            <form action="/register" method="post" enctype="multipart/form-data">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Full Name</span>
+                        <input type="text" name="full_name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Degree</span>
+                        <input type="text" name="degree" placeholder="MBBS, BDS, psychologist, or other" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Specialization</span>
+                        <input type="text" name="specialization" placeholder="Cardiothoracic Surgery or others" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Disease Specialist</span>
+                        <input type="text" name="disease_specialist" placeholder="Diabetes, Asthma, Cancer, or others" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        <input type="text" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Contact</span>
+                        <input type="text" name="contact" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Address</span>
+                        <input type="text" name="address" placeholder="Enter your address" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Country</span>
+                        <input type="text" name="country" placeholder="Enter your country" required>
+                    </div>
+                </div>
+               <div class="gender-details">
+    <input type="radio" name="gender" id="dot-1" value="Male">
+    <input type="radio" name="gender" id="dot-2" value="Female">
+    <span class="gender-title">Gender</span>
+    <div class="category">
+        <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+        </label>
+        <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+        </label>
+    </div>
+</div>
+
+                <div id="uploader-container">
+                    <label for="file-input">Choose Image</label>
+                    <input type="file" id="file-input" name="file-input" accept="image/*" onchange="displayImage()">
+                    <img id="uploaded-image" alt="Uploaded Image">
+                </div>
+                <div class="button">
+                    <input type="submit" value="Register">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function displayImage() {
+            const fileInput = document.getElementById('file-input');
+            const uploadedImage = document.getElementById('uploaded-image');
+
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    uploadedImage.src = e.target.result;
+                    uploadedImage.classList.add('active');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Doctor</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body style="background: linear-gradient(135deg, #71b7e6, #9b59b6);">
+    <div class="container">
+        <h1>Update Doctor</h1>
+        <form action="/admin/update/{{ doctor.id }}" method="post" enctype="multipart/form-data">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Full Name</span>
+                    <input type="text" name="full_name" placeholder="Enter your name" value="{{ doctor.full_name }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Degree</span>
+                    <input type="text" name="degree" placeholder="MBBS, BDS, psychologist, or other" value="{{ doctor.degree }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Specialization</span>
+                    <input type="text" name="specialization" placeholder="Cardiothoracic Surgery or others" value="{{ doctor.specialization }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Disease Specialist</span>
+                    <input type="text" name="disease_specialist" placeholder="Diabetes, Asthma, Cancer, or others" value="{{ doctor.disease_specialist }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Email</span>
+                    <input type="text" name="email" placeholder="Enter your email" value="{{ doctor.email }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Contact</span>
+                    <input type="text" name="contact" placeholder="Enter your phone number" value="{{ doctor.contact }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Address</span>
+                    <input type="text" name="address" placeholder="Enter your address" value="{{ doctor.address }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Country</span>
+                    <input type="text" name="country" placeholder="Enter your country" value="{{ doctor.country }}" required>
+                </div>
+            </div>
+            <div class="gender-details">
+                <input type="radio" name="gender" id="dot-1" value="Male" {% if doctor.gender == 'Male' %}checked{% endif %}>
+                <input type="radio" name="gender" id="dot-2" value="Female" {% if doctor.gender == 'Female' %}checked{% endif %}>
+                <span class="gender-title">Gender</span>
+                <div class="category">
+                    <label for="dot-1">
+                        <span class="dot one"></span>
+                        <span class="gender">Male</span>
+                    </label>
+                    <label for="dot-2">
+                        <span class="dot two"></span>
+                        <span class="gender">Female</span>
+                    </label>
+                </div>
+            </div>
+
+            <div id="uploader-container">
+                <label for="file-input">Choose Image</label>
+                <input type="file" id="file-input" name="file-input" accept="image/*" onchange="displayImage()">
+                <img id="uploaded-image" alt="Uploaded Image" src="data:image/png;base64,{{ doctor.image_data }}">
+            </div>
+            <div class="button">
+                <input type="submit" value="Update Doctor">
+            </div>
+        </form>
+        <a href="/admin">Go back to Admin Panel</a>
+    </div>
+
+    <script>
+        function displayImage() {
+            const fileInput = document.getElementById('file-input');
+            const uploadedImage = document.getElementById('uploaded-image');
+
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    uploadedImage.src = e.target.result;
+                    uploadedImage.classList.add('active');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>

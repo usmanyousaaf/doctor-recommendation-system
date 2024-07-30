@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow-x: auto;
+        }
+
+        h1 {
+            color: #fff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            color: #fff;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        td img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+
+        button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Degree</th>
+                <th>Specialization</th>
+                <th>Disease Specialist</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Address</th>
+                <th>Country</th>
+                <th>Gender</th>
+                <th>Image</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            {% for doctor in doctors %}
+            <tr>
+                <td>{{ doctor.id }}</td>
+                <td>{{ doctor.full_name }}</td>
+                <td>{{ doctor.degree }}</td>
+                <td>{{ doctor.specialization }}</td>
+                <td>{{ doctor.disease_specialist }}</td>
+                <td>{{ doctor.email }}</td>
+                <td>{{ doctor.contact }}</td>
+                <td>{{ doctor.address }}</td>
+                <td>{{ doctor.country }}</td>
+                <td>{{ doctor.gender }}</td>
+                <td><img src="data:image/png;base64,{{ doctor.image_data }}" alt="Doctor Image"></td>
+                <td>
+                    <form action="/admin/update/{{ doctor.id }}" method="post">
+                        <button type="submit">Update</button>
+                    </form>
+                </td>
+                <td>
+                    <a href="/admin/delete/{{ doctor.id }}"><button>Delete</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
